@@ -10,9 +10,11 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
 
+    # В него будем передавать два аргумента: как искать (css, id, xpath и тд) и 
+    # собственно что искать (строку-селектор). 
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
-        except NoSuchElementException:
+        except (NoSuchElementException, AttributeError):
             return False
         return True
