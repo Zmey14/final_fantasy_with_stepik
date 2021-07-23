@@ -8,6 +8,9 @@ class MainPage(BasePage):
         # изменить на подобии нижнего
         login_link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
         login_link.click()
+        # при добавлении разработчиками окна alert, они обрабатываются таким образом
+        # alert = self.browser.switch_to.alert
+        # alert.accept()
 
     # символ *, указывает на то, что мы передали именно пару, и этот кортеж нужно распаковать. 
     def should_be_login_link(self):
