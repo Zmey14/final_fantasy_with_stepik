@@ -7,13 +7,22 @@ class ProductPage(BasePage):
     def should_be_in_basket(self):
         submit = self.browser.find_element(By.CSS_SELECTOR, ".btn-add-to-basket")
         submit.click()
-        # assert "?promo=newYear" in self.browser.current_url, "скидки не будет!"
 
-    def shopping_cart_comparison(self):
-        coast_basket = self.is_element_present(*ProductPageLocators.COASTBASKET)
-        coast_book = self.is_element_present(*ProductPageLocators.COASTBOOK)
-        try: 
-            coast_book == coast_basket
-            print("The cost of the basket is the same as the price of the product")
-        except:
-            print("The cost of the basket does not match the price of the product")
+    def shopping_cart_comparison_price(self):
+        coast_basket = self.browser.find_element(*ProductPageLocators.COASTBASKET).text
+        coast_book = self.browser.find_element(*ProductPageLocators.COASTBOOK).text
+        assert coast_basket == coast_book, "цены не соответствуют друг другу"
+
+    def shopping_cart_comparison_title(self):
+        name_title = self.browser.find_element(*ProductPageLocators.NAMETITLEBOOK).text
+        name_book = self.browser.find_element(*ProductPageLocators.NAMEBOOK).text
+        assert name_book == name_title, "Названия книги отличаются"
+        # try: 
+        #     if name_book == name_title:
+        #         print("The cost of the basket is the same as the price of the product")
+                
+        #     else:
+        #         print("The cost of the basket does not match the price of the product")
+        # except:
+        #     'Такой элемент отсутствует'
+        
