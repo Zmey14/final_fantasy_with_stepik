@@ -16,3 +16,4 @@ class ProductPageLocators():
     NAMETITLEBOOK = (By.CSS_SELECTOR, "#messages div:nth-child(1) strong")
     COASTBASKET = (By.CSS_SELECTOR, ".alertinner p strong")
     COASTBOOK = (By.CSS_SELECTOR, ".product_main .price_color")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages div:first-child")

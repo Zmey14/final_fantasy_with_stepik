@@ -17,12 +17,11 @@ class ProductPage(BasePage):
         name_title = self.browser.find_element(*ProductPageLocators.NAMETITLEBOOK).text
         name_book = self.browser.find_element(*ProductPageLocators.NAMEBOOK).text
         assert name_book == name_title, "Названия книги отличаются"
-        # try: 
-        #     if name_book == name_title:
-        #         print("The cost of the basket is the same as the price of the product")
-                
-        #     else:
-        #         print("The cost of the basket does not match the price of the product")
-        # except:
-        #     'Такой элемент отсутствует'
         
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
+
+    def should_desappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Element is desappaered"
