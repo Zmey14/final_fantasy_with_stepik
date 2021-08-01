@@ -25,3 +25,5 @@ class ProductPage(BasePage):
     def should_desappeared(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
         "Element is desappaered"
+
+   
