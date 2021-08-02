@@ -3,7 +3,7 @@ from .pages.product_page import ProductPage
 from .pages.login_page import LoginPage
 from .pages.base_page import BasePage
 import pytest
-import time
+
 
 @pytest.mark.new
 class TestUserAddToBasketFromProductPage():
