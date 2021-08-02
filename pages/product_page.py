@@ -16,7 +16,7 @@ class ProductPage(BasePage):
     def shopping_cart_comparison_title(self):
         name_title = self.browser.find_element(*ProductPageLocators.NAMETITLEBOOK).text
         name_book = self.browser.find_element(*ProductPageLocators.NAMEBOOK).text
-        assert name_book == name_title, "Названия книги отличаются"
+        assert name_book == name_title, "Названия книги отличается"
         
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \

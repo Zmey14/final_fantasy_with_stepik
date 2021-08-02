@@ -11,8 +11,4 @@ class BasketPage(BasePage):
         # Проверка на то, что у нас есть текс подтверждающий что наша корзина пустая
         assert self.browser.find_element(*BasePageLocators.BASKET_EMPTY_TEXT).text, "Text not find!"
         
-    
-    # Тест проверки предыдущих тестов(как бы странно это не звучало)
-    # def chek_our_tests(self):
-    #     add_book = self.browser.find_element(*BasePageLocators.TESTS)
-    #     add_book.click()
+ 
