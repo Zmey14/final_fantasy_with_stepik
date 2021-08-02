@@ -31,7 +31,6 @@ class TestUserAddToBasketFromProductPage():
         page.shopping_cart_comparison_price()
         page.shopping_cart_comparison_title()
     
-
 @pytest.mark.parametrize('promo_offer', [pytest.param(i, marks=pytest.mark.xfail(i==7, reason='')) for i in range(10)])
 @pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser, promo_offer):

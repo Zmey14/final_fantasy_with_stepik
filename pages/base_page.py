@@ -7,7 +7,6 @@ from .locators import BasePageLocators
 import math
 
 
-
 class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.url = url
