@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
 from selenium.webdriver.common.by import By
+from faker import Faker
 
 
 class LoginPage(BasePage):
@@ -22,3 +23,16 @@ class LoginPage(BasePage):
     def should_be_register_form(self):
         # реализуйте проверку, что есть форма регистрации на странице
         assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), 'register form is not find'
+
+    def register_new_user(self):
+        f = Faker()
+        email_faker = f.email()
+        password_faker = f.password()
+        email = self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL)
+        email.send_keys(email_faker)
+        password1 = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD1)
+        password1.send_keys(password_faker)
+        password2 = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD2)
+        password2.send_keys(password_faker)
+        button = self.browser.find_element(*LoginPageLocators.BUTTON_REGISTER)
+        button.click()

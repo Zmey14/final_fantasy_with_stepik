@@ -7,6 +7,7 @@ from .locators import BasePageLocators
 import math
 
 
+
 class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.url = url
@@ -65,3 +66,8 @@ class BasePage():
     def go_to_open_basket(self):
         link = self.browser.find_element(*BasePageLocators.OPEN_BASKET)
         link.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+        " probably unauthorised user"
+
